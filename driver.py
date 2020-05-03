@@ -3,8 +3,8 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 keyWords = [
-    '藍牙耳機',
-    'WF-H800',
+    'GOGORO',
+    '放心騎',
     ]
 
 host = '/tg-mediaweb.com'
