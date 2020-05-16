@@ -3,7 +3,7 @@ import time
 host = '/tg-mediaweb.com'
 
 
-spider = spider(host)
+spider = spider(host,True)
 time.sleep(5)
 spider.toHomePage()
 
@@ -24,8 +24,6 @@ while True:
         spider.toHomePage()
         time.sleep(5)
 
-
-    
 
 
 

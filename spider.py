@@ -3,10 +3,15 @@ from selenium.webdriver.common.keys import Keys
 import time
 class spider():
     
-    def __init__(self,host):
+    def __init__(self,host,mobileMode=False):
         self.host = host
         self.eHrefArray=[]
-        self.driver = webdriver.Chrome()
+        
+        options = webdriver.ChromeOptions()
+        if(mobileMode):
+            mobileEmulation = {'deviceName': 'Nexus 5'}
+            options.add_experimental_option('mobileEmulation',mobileEmulation)
+        self.driver = webdriver.Chrome(chrome_options=options)
 
     def search(self,search:str):
         searchBar = self.driver.find_element_by_name('q')
