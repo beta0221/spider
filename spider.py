@@ -7,7 +7,6 @@ class spider():
         self.host = host
         self.eHrefArray=[]
         self.driver = webdriver.Chrome()
-        self.driver.get('http://www.google.com')
 
     def search(self,search:str):
         searchBar = self.driver.find_element_by_name('q')
