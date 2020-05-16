@@ -37,7 +37,8 @@ class spider():
                 innerHtml = str(a.get_attribute('innerHTML'))
                 print(innerHtml)
                 if innerHtml.find(keyWord) != -1:
-                    a.click()
+                    # a.click()
+                    self.driver.execute_script("arguments[0].click();", a)
                     return True
         # 都沒有找到
         hasNext = self.nextPage()
@@ -71,23 +72,22 @@ class spider():
         self.driver.quit()
 
 
-
-
 spider = spider()
-hasSearch = False
-if hasSearch == False:
-    spider.search('tg-mediaweb.com')
-    time.sleep(2)
-    hasSearch = spider.clickATagHasHref(host)
-    if(hasSearch):
+def main():
+    # spider = spider()
+    hasSearch = False
+    if hasSearch == False:
+        spider.search('tg-mediaweb.com')
         time.sleep(2)
-        hasText = spider.clickATagHasText()
-        if hasText:
-            spider.scroll()
+        hasSearch = spider.clickATagHasHref(host)
+        if(hasSearch):
+            time.sleep(2)
+            hasText = spider.clickATagHasText()
+            if hasText:
+                spider.scroll()
 
+    spider.quite()
     
 
-spider.quite()
-
-
+main()
 
