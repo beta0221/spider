@@ -4,6 +4,7 @@ host = '/tg-mediaweb.com'
 
 
 spider = spider(host)
+time.sleep(5)
 spider.toHomePage()
 
 while True:
@@ -13,7 +14,7 @@ while True:
         post = spider.getPost(i)
         if(post != False):
             spider.clickElement(post)
-            time.sleep(2)
+            time.sleep(5)
             spider.scroll()
             spider.driver.back()
 
@@ -21,7 +22,7 @@ while True:
     result = spider.nextPage()
     if(result == False):
         spider.toHomePage()
-        time.sleep(2)
+        time.sleep(5)
 
 
     
